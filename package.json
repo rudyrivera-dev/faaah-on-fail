@@ -24,12 +24,24 @@
     "color": "#1a1a2e",
     "theme": "dark"
   },
-  "extensionKind": ["ui"],
+  "extensionKind": [
+    "workspace"
+  ],
   "activationEvents": [
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "views": {
+      "test": [
+        {
+          "type": "webview",
+          "id": "faaaah.audioPlayerView",
+          "name": "FAAAAH Audio Player",
+          "icon": "images/icon.png"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "faaaahOnFail.enable",
@@ -76,13 +88,18 @@
           "type": "number",
           "default": 0.7,
           "minimum": 0.1,
-          "maximum": 1.0,
+          "maximum": 1,
           "description": "Volume of the FAAAAH sound (0.1 - 1.0)"
         },
         "faaaahOnFail.sound": {
           "type": "string",
           "default": "faaaah",
-          "enum": ["faaaah", "fatality", "joker", "random"],
+          "enum": [
+            "faaaah",
+            "fatality",
+            "joker",
+            "random"
+          ],
           "enumDescriptions": [
             "The classic FAAAAH trumpet",
             "Fatality! Mortal Kombat style",
@@ -98,19 +115,25 @@
         },
         "faaaahOnFail.extraTestCommands": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "default": [],
           "description": "Additional commands to treat as test runs (e.g. [\"my-test-runner\"])"
         },
         "faaaahOnFail.extraBuildCommands": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "default": [],
           "description": "Additional commands to treat as build/compile runs (e.g. [\"my-build-tool\"])"
         },
         "faaaahOnFail.extraRunCommands": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "default": [],
           "description": "Additional commands to treat as runtime runs (e.g. [\"my-server\"])"
         },
